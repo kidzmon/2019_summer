@@ -1,8 +1,8 @@
-#시스템과 인프라 기초지식
+# 1. 시스템과 인프라 기초지식
 * 시스템 기반 : 애플리케이션을 가동시키기 위해 필요한 하드웨어나 OS/미들웨어 등과 같은 인프라
 
-###1. 1 시스템 기반의 기초지식
-#####1. 시스템 기반의 구성요소
+### 1. 1 시스템 기반의 기초지식
+##### 1. 시스템 기반의 구성요소
 + 기능요구사항(fucntional requirement)
 	+ 시스템의 기능으로서 요구되는 사항
 + 비기능 요구사항(non-functional requirement)
@@ -20,7 +20,7 @@
 + 미들웨어
 	+ 서버 OS 상에서 서버가 특정 역할을 다하기 위한 기능을 갖고 있는 소프트웨어
 
-#####2. 클라우드와 온프레미스
+##### 2. 클라우드와 온프레미스
 + 온프레미스(on-premises)
 	+ 자사에서 데이터센터를 보유하고 시스템 구축부터 운용까지를 모두 수행하는 형태
 	+ 초기 시스템 투자에 드는 비용 부담이 크며, 시스템 가동 후의 운용에 드는 비용도 시스템 이용량과 상관없이 일정 금액을 부담해야 함
@@ -31,7 +31,7 @@
 	+ 특정 기업 그룹에게만 제공되는 클라우드 서비스
 	+ 이용자를 한정할 수 있어 보안을 확보하기 쉬우며 독자적인 기능이나 서비스 추가가 쉬움
 
-#####3. 클라우드가 적합한 케이스
+##### 3. 클라우드가 적합한 케이스
 + 트래픽의 변동이 많은 시스템
 	+ 직원용 시스템 : 이용자가 한정되어있어 트래픽 예상이 쉬움
 	+ 고객용 시스템 : 정확한 트래픽을 예측하기 어려움
@@ -40,12 +40,12 @@
 + 재해 대책으로 해외에 백업을 구축하고 싶은 시스템
 + 서비스를 빨리 제공하고 싶은 시스템
 
-#####4. 온프레미스가 적합한 케이스
+##### 4. 온프레미스가 적합한 케이스
 + 높은 가용성이 요구되는 시스템
 + 기밀성이 높은 데이터를 다루는 시스템
 + 특수한 요구사항이 있는 시스템
 
-#####5. 시스템 기반의 구축/운용 흐름
+##### 5. 시스템 기반의 구축/운용 흐름
 **시스템화 계획 요구사항 정의 -> 인프라 설계 -> 인프라 구축 -> 운용**
 + Docker : 시스템 구축이나 시스템 운용에 있어서 지금까지 사람의 손으로 해왔던 작업을 자동화하고, 테스트가 끝난 안전한 애플리케이션을 지속적으로 제공할 수 있는 플랫폼.
 + 운용 단계
@@ -57,19 +57,19 @@
 	+ 사용자 서포트(헬프 데스크)
 
 # 
-###1. 2 하드웨어와 네트워크 기초 지식
-#####1. 서버장비
+### 1. 2 하드웨어와 네트워크 기초 지식
+##### 1. 서버장비
 + CPU
 + 메모리
 + 스토리지
 
-#####2. 네트워크주소
+##### 2. 네트워크주소
 + MAC 주소(물리 주소/이더넷 주소)
 	+ 네트워크 부품에 물리적으로 할당되는 고유한 48비트 주소
 + IP 주소
 	+ 네트워크에 연결된 컴퓨터나 네트워크장비에 할당되는 식별번호
 
-#####3. OSI 참조 모델과 통신 프로토콜
+##### 3. OSI 참조 모델과 통신 프로토콜
 + 응용 계층(레이어 7)
 	+ 웹의 HTTP나 SMTP등과 같은 애플리케이션에 특화된 프로토콜을 규정
 + 표현 계층(레이어 6)
@@ -87,7 +87,7 @@
 + 물리 계층(레이어 1)
 	+ 통신장비의 물리적 및 전기적 특성을 규정
 
-#####4. 방화벽
+##### 4. 방화벽
 + 패킷 필터형
 	+ 통과하는 패킷을 포트번호나 IP 주소를 바탕으로 필터링
 	+ ACL(Access Control List)
@@ -95,27 +95,27 @@
 	+ 패킷이 아니라 애플리케이션 프로토콜 레벨에서 통신을 대체 제어
 	+ 프록시 서버
 
-#####5. 라우터/레이어 3 스위치
+##### 5. 라우터/레이어 3 스위치
 - 라우터 : 2개 이상의 서로 다른 네트워크 간을 중계하기 위한 통신장비
 - 정적 경로, 동적 경로
 
 # 
-###1.3 OS(Linux) 기초 지식
-#####1. Linux
+### 1.3 OS(Linux) 기초 지식
+##### 1. Linux
 + 보안에 뛰어나며 안정적으로 작동
 + 오픈소스
 + 리눅스 커널 : OS의 코어가 되는 부분으로 메모리 관리, 파일 시스템, 프로세스 관리, 디바이스 제어 등 하드웨어나 애플리케이션 소프트 웨어를 제어하기 위한 기본적 기능을 갖고있는 소프트웨어
 
-#####2. Linux 커널
+##### 2. Linux 커널
 + 디바이스 관리
 + 프로세스 관리
 + 메모리 관리
 
-#####3. Linux 파일시스템
+##### 3. Linux 파일시스템
 + Linux에서 하드디스크나 USB 메모리와 같은 데이터에 액세스하기 위한 장치
 + ext2, ext3, ext4, tmpfs, UnionFS, ISO-9660, NFS
 
-#####4. Linux 디렉토리 구성
+##### 4. Linux 디렉토리 구성
 + /bin : 기본 커맨드
 + /boot : OS 시작에 필요한 파일
 + /dev : 디바이스 파일
@@ -128,38 +128,38 @@
 + /usr : 각종 프로그램이나 커널 소스를 놓아두는 디렉토리
 + /var :  로그나 메일 등 가변적인 파일을 놓아두는 디렉토리
 
-#####5. Linux 보안 기능
+##### 5. Linux 보안 기능
 + 계정에 대한 권한 설정 : 퍼미션(permission)
 + 네트워크 필터링을 사용한 보안 기능
 + SELinux(Security-Enhanced Linux)
 
 # 
-###1.4 미들웨어 기초 지식
-#####1. 웹서버/웹 애플리케이션 서버
+### 1.4 미들웨어 기초 지식
+##### 1. 웹서버/웹 애플리케이션 서버
 + 웹 서버 : 클라이언트의 브라우저가 보내온 HTTP 요청을 받아, 웹 콘텐츠를 응답으로 반환하거나 다른 서버사이드 프로그램을 호출하는 기능을 갖고있는 서버
 + Apache, Internet Information Services, Nginx
 
-#####2. 데이터베이스 서버
+##### 2. 데이터베이스 서버
 + 데이터베이스 서버 : 시스템이 생성하는 다양한 데이터를 관리하기 위한 미들웨어
 + DBMS : 데이터의 검색, 등록, 변경, 삭제 + 트랜잭션 처리
 + MySQL, PostgreSQL, Oracle Database
 + NoSQL : 병렬분산처리나 유연한 첩 설정등을 특징으로 갖는 DBMS
 
-#####3. 시스템 감시 툴
+##### 3. 시스템 감시 툴
 + 시스템을 안정적으로 가동시키기 위해 시스템이 어떤 상태로 가동되는지 모니터링하는 툴
 + Zabbix, Datadog, Mackerel
 
 # 
-###1.5 인프라 구성 관리 기초 지식
-#####1. 인프라 구성 관리
+### 1.5 인프라 구성 관리 기초 지식
+##### 1. 인프라 구성 관리
 + 인프라를 구성하는 하드웨어, 네트워크, OS, 미들웨어, 애플리케이션의 구성 정보를 관리하고 적절한 상태로 유지하는 작업
 
-#####2. 코드를 사용한 구성 관리
+##### 2. 코드를 사용한 구성 관리
 + 애플리케이션 개발에서의 소스코드 관리와 똑같이 Git과 같은 버전 관리 소프트웨어로 변경 이력을 일원하여 관리 가능
 + 구성에 변경이 발생한 경우는 커미트 메세지를 붙임으로써 어떤 목적으로 어떤 구성을 변경했는지를 팀 멤보끼리 공유 가능
 + 소스코드로 구성을 가시화할 수 있어 인적 실수를 배제
 
-#####3. 대표적인 인프라 구성관리 툴
+##### 3. 대표적인 인프라 구성관리 툴
 + OS의 시작을 자동화하는 툴
 	+ KickStart, Vagrant
 + OS나 미들웨어의 설정을 자동화하는 툴
@@ -167,18 +167,18 @@
 + 여러 서버의 관리를 자동화하는 툴
 	+ Kubernetes
 
-#####4. 지속적 인티그레이션/지속적 딜리버리
+##### 4. 지속적 인티그레이션/지속적 딜리버리
 + 지속적 인티그레이션
 	+ 애플리케이션의 코드를 추가 및 수정할 때마다 테스트를 실행하고 확실하게 작동하는 코드를 유지하는 방법
 + 지속적 딜리버리
 	+ 모든 기능을 한 번에 다 만드는 것이 아니라 기능을 추가할 때마다 애플리케이션을 제품 환경에 배포하고, 시스템 이용자의 피드백에 기초하여 그 다음에 개발할 기능을 결정
 	+ 짧은 사이클의 개발과 릴리스를 반복
 
-#컨테이너 기술과 Docker의 개요
+# 2. 컨테이너 기술과 Docker의 개요
 - Docker : 컨테이너 기술을 사용하여 애플리케이션의 실행 환경을 구축 및 운용하기 위한 플랫폼
 
-###2. 1 컨테이너 기술의 개요
-#####1. 컨테이너
+### 2. 1 컨테이너 기술의 개요
+##### 1. 컨테이너
 + 컨테이너 : 호스트 OS상에 논리적인 구획(컨테이너)을 만들고, 애플리케이션을 작동시키기 위해 필요한 라이브러리나 애플리케이션 등을 하나로 모아, 마치 별도의 서버인 것처럼 사용할 수 있게 만든 것
 + 호스트 OS의 리소스를 논리적으로 분리시키고, 여러 개의 컨테이너가 공유하여 사용
 + 오버헤드가 적기 때문에 가볍고 고속으로 작동
@@ -192,7 +192,7 @@
 		+ 애플리케이션의 실행에 필요한 모듈을 컨테이너로 모을 수 있음
 		+ 여러 개의 컨테이너를 조합하여 하나의 애플리케이션을 구축하는 마이크로 서비스형 애플리케이션과 친화성이 높음
 
-#####2. 컨테이너 역사
+##### 2. 컨테이너 역사
 + FreeBSD Jail
 	+ 프로세스의 구획화
 	+ 네트워크의 구획화
@@ -203,28 +203,28 @@
 + Linux Containers(LXC)
 
 # 
-###2. 2 Docker의 개요
-#####1. 프로그래머에게 Docker란?
+### 2. 2 Docker의 개요
+##### 1. 프로그래머에게 Docker란?
 + Docker를 사용하여 개발한 어플리케이션의 실행에 필요한 모든 것이 포함되어있는 Docker이미지를 작성
 + 이식성(portability)
 
 # 
-###2. 3 Docker의 기능
-#####1. Docker 이미지를 만드는 기능(Build)
+### 2. 3 Docker의 기능
+##### 1. Docker 이미지를 만드는 기능(Build)
 + Docker는 애플리케이션의 실행에 필요한 프로그램 본체, 라이브러리, 미들웨어, OS나 네트워크 설정등을 하나로 모아 이미지 생성
 + Docker 이미지 : 애플리케이션의 실행에 필요한 파일들이 저장된 디렉토리
 + Docker 이미지는 겹쳐서 사용 가능
 
-#####2. Docker 이미지를 공유하는 기능(Ship)
+##### 2. Docker 이미지를 공유하는 기능(Ship)
 + Docker 이미지를 Docker 레지스트리에서 공유 가능
 + Docker Hub
 
-#####3. Docker 컨테이너를 작동시키는 기능(Run)
+##### 3. Docker 컨테이너를 작동시키는 기능(Run)
 + Docker는 Linux 상에서 컨테이너 단위로 서버 기능을 작동
 + Docker 이미지로 여러개의 컨테이너 기동 가능
 + Docker는 이미 움직이고 있는 OS상에서 프로세스를 실행시키는 것과 거의 똑같은 속도로 실행 가능
 
-#####4. Docker 에디션
+##### 4. Docker 에디션
 + Docker Community Edition(CE)
 + Docker Enterprise Edition(EE)
 + 지원 플랫폼
@@ -233,7 +233,7 @@
 	+ 클라이언트 OS용 : Microsoft Windows 10, macOS
 + Docker 릴리스
 
-#####5. Docker 컴포넌트
+##### 5. Docker 컴포넌트
 + Docker Engine(Docker의 핵심 기능)
 + Docker Registry(이미지 공개 및 공유)
 + Docker Compose(컨테이너 일원 관리)
@@ -241,8 +241,8 @@
 + Docker Swarm(클러스터 관리)
 
 # 
-###2. 4 Docker의 작동 구조
-#####1. 컨테이너를 구획화하는 장치(namespace)
+### 2. 4 Docker의 작동 구조
+##### 1. 컨테이너를 구획화하는 장치(namespace)
 + namespace :
 	+ 한 덩어리의 데이터에 이름을 붙여 분할함으로써 충돌 가능성을 줄이고, 쉽게 참조할 수 있게 하는 개념
 	+ 이름과 연결된 실체는 그 이름이 어떤 namespace에 속해 있는지 고유하게 정해짐
@@ -261,17 +261,17 @@
 + IPC namespace
 	+ 프로세스 간의 통신 오브젝트를 namespace별로 독립적으로 운용
 
-#####2. 릴리스 관리 장치(cgroups)
+##### 2. 릴리스 관리 장치(cgroups)
 + 자원을 여러 컨테이너가 공유하여 작동하기 때문에 control group기능으로 자원 할당등을 관리
 + cgroups는 계층 구조를 사용하여 프로세스를 그룹화하여 관리 가능
 
-#####3. 네트워크 구성(가상 브리지/가상 NIC)
+##### 3. 네트워크 구성(가상 브리지/가상 NIC)
 + Docker 컨테이너와 외부 네트워크가 통신을 할 때는 가상 브리지와 호스트OS의 NIC에서 패킷을 전송하는 장치가 필요한데 NAPT기능을 사용
 + NAPT(Network Address Port Translation) : 하나의 IP주소를 여러 컴퓨터가 공유하는 기술
 	+ IP주소와 포트 번호를 변환하는 기능
 	+ TCP/IP의 포트 번호까지 동적으로 변환하기 때문에 하나의 글로벌 IP주소로 여러 대의 머신이 동시에 연결 가능
 
-#####4. Docker 이미지의 데이터 관리장치
+##### 4. Docker 이미지의 데이터 관리장치
 + Copy on Write 방식으로 컨테이너 이미지를 관리
 + AUFS : 다른 파일 시스템의 파일이나 디렉토리를 투과적으로 겹쳐서 하나의 파일 트리를 구성할 수 있는 파일시스템
 + Btrfs : Linux용 Copy on Write 파일시스템으로 과거의 상태로 돌아갈 수 있는 롤백 기능이나, 어떤 시점에서의 상태를 저장할 수 있는 스냅샷 기능 포함
@@ -279,10 +279,10 @@
 + OverlayFS : 파일 시스템에 다른 파일 시스템을 투과적으로 머징하는 장치
 + ZFS : 볼륨 관리, 스냅샷, 체크섬 처리, 리플리케이션 등을 지원
 
-#Docker 설치와 튜토리얼
+# 3. Docker 설치와 튜토리얼
 
-###3.1 Docker 설치와 작동 확인
-#####1. Docker의 클라이언트 툴
+### 3. 1 Docker 설치와 작동 확인
+##### 1. Docker의 클라이언트 툴
 
 + Linux
 	+ 설치 사전준비
@@ -309,7 +309,7 @@
 `$ docker system df`
 
 # 
-###3.2 웹 서버를 작동시켜 보자
+### 3. 2 웹 서버를 작동시켜 보자
 + Docker 이미지 다운로드하기
 	+ 이미지 다운로드
 	`$ docker pull nginx`
@@ -331,10 +331,10 @@
 	+ 컨테이너 기동
 	`$ docker start webserver`
 
-#Docker 명령
+# 4. Docker 명령
 
-###4.1 Docker 이미지 조작
-#####1. Docker Hub
+### 4. 1 Docker 이미지 조작
+##### 1. Docker Hub
 + [https://hubdocker.com](https://hubdocker.com)
 	+ 공식 docker 이미지 : official
 	+ [Repo Info] : Docker 이미지 상세 정보
@@ -342,12 +342,12 @@
 	 `이미지명 [:태그명]`
 	 - 태그명에 latest를 지정 가능
 
-#####2. 이미지 다운로드(docker image pull)
+##### 2. 이미지 다운로드(docker image pull)
 + `docker image pull [옵션] 이미지명[:태그명]`
 + -a : 모든 태그 이미지 취득
 + URL을 지정하여 이미지 취득 가능
 
-#####3. 이미지 목록 표시(docker image ls)
+##### 3. 이미지 목록 표시(docker image ls)
 + `docker image ls [옵션] [리포지토리명]`
 + 옵션
 
@@ -367,13 +367,13 @@
 |CREATED| 작성일|
 |SIZE|이미지 크기
 
-#####4. 이미지 상세 정보 확인(docker image inspect)
+##### 4. 이미지 상세 정보 확인(docker image inspect)
 + `docker image insepct 이미지명[:태그명]`
 
-#####5. 이미지 태그 설정(docker image tag)
+##### 5. 이미지 태그 설정(docker image tag)
 + `<docker Hub 사용자명>/이미지명:[태그명]`
 
-#####6. 이미지 검색(docker search)
+##### 6. 이미지 검색(docker search)
 + `docker search [옵션] <검색 키워드>`
 + 옵션
 
@@ -392,7 +392,7 @@ STARS|즐겨찾기 수
 OFFICIAL|공식 이미지인지 아닌지
 AUTOMATED|Dockerfile을 바탕으로 자동 생성된 이미지인지 아닌지
 
-#####7. 이미지 삭제(docker image rm)
+##### 7. 이미지 삭제(docker image rm)
 + `docker image rm [옵션] 이미지명 [이미지명]`
 + 옵션
 
@@ -410,7 +410,7 @@ AUTOMATED|Dockerfile을 바탕으로 자동 생성된 이미지인지 아닌지
 --all, -a|사용하지 않은 이미지를 모두 삭제
 --force, -f|이미지를 강제로 삭제
 
-#####8. Docker Hub에 로그인(docker lgoin)
+##### 8. Docker Hub에 로그인(docker lgoin)
 + `docker login [옵션] [서버]`
 + 옵션
 
@@ -420,16 +420,16 @@ AUTOMATED|Dockerfile을 바탕으로 자동 생성된 이미지인지 아닌지
 --username, -u| 사용자명
 + 옵션을 지정하지 않으면 사용자명과 비밀번호를 물어봄
 
-#####9. 이미지 업로드(docker image push)
+##### 9. 이미지 업로드(docker image push)
 + `docker image push 이미지명[:태그명]`
 + `<Docker Hub 사용자명>/이미지명[:태그명]`
 
-#####10. Docker Hub에서 로그아웃(docker logout)
+##### 10. Docker Hub에서 로그아웃(docker logout)
 + `docker logout [서버명]`
 
 # 
-###4.2 Docker 컨테이너 생성/시작/정지
-#####1. Docker 컨테이너의 라이프 사이클
+### 4. 2 Docker 컨테이너 생성/시작/정지
+##### 1. Docker 컨테이너의 라이프 사이클
 + 컨테이너 생성(docker container create 명령)
 	+ 이미지로부터 컨테이너를 생성
 	+ 이미지의 실체는 'Docker에서 서버 기능을 작동시키기 위해 필요한 디렉토리 및 파일들
@@ -448,7 +448,7 @@ AUTOMATED|Dockerfile을 바탕으로 자동 생성된 이미지인지 아닌지
 	+ 컨테이너의 상태 확인 : `docker container ps`
 	+ 컨테이너 일시정지 : `docker container pause`
 
-#####2. 컨테이너 생성 및 시작(docker container run)
+##### 2. 컨테이너 생성 및 시작(docker container run)
 + `docker container run [옵션] 이미지명[:태그명] [인수]`
 + 옵션
 
@@ -468,7 +468,7 @@ AUTOMATED|Dockerfile을 바탕으로 자동 생성된 이미지인지 아닌지
 	+ centos : 이미지명
 	+ /bin/cal : 컨테이너에서 실행할 명령
 
-#####3. 컨테이너의 백그라운드 실행(docker container run)
+##### 3. 컨테이너의 백그라운드 실행(docker container run)
 + `docker container run [실행 옵션] 이미지명[:태그명] [인수]`
 + 옵션
 
@@ -496,7 +496,7 @@ on-failure:횟수 n|종료 스테이터스가 0이 아닐 때 n번 재시작한�
 always|항상 재시작한다.
 unless-stopped | 최근 컨테이너가 정지 상태가 아니라면 항상 재시작한다.
 
-#####4. 컨테이너의 네트워크 설정(docker container run)
+##### 4. 컨테이너의 네트워크 설정(docker container run)
 +` docker container run [네트워크 옵션] 이미지명[:태그명] [인수]`
 + 옵션
 
@@ -521,7 +521,7 @@ container:[name &#124; id ]|다른 컨테이너의 네트워크를 사용한다.
 host|컨테이너가 호스트 OS의 네트워크를 사용한다.
 NETWORK | 사용자 정의 네트워크를 사용한다.
 
-#####5. 자원을 지정하여 컨테이너 생성 및 실행(docker container run)
+##### 5. 자원을 지정하여 컨테이너 생성 및 실행(docker container run)
 + `docker container run [자원 옵션] 이미지명[:태그명] [인수]`
 + 옵션
 
@@ -531,7 +531,7 @@ NETWORK | 사용자 정의 네트워크를 사용한다.
 --memory, -m|사용할 메모리를 제한하여 실행(단위는 b, k, m, g 중 하나)
 --volume=[호스트의 디렉토리]:[컨테이너의 디렉토리], -v | 호스트와 컨테이너의 디렉토리를 공유
 
-#####6. 컨테이너를 생성 및 시작하는 환경을 지정(docker container run)
+##### 6. 컨테이너를 생성 및 시작하는 환경을 지정(docker container run)
 + `docker container run [환셩설정 옵션] 이미지명[:태그명] 인수`
 + 옵션
 
@@ -543,7 +543,7 @@ NETWORK | 사용자 정의 네트워크를 사용한다.
 --workdir=[패스], -w | 컨테이너의 작업 디렉토리를 지정한다.
 --user=[사용자명], -u | 사용자명 또는 UID를 지정한다.
 
-#####7. 가동 컨테이너 목록 표시(docker container ls)
+##### 7. 가동 컨테이너 목록 표시(docker container ls)
 + `docker container ls [옵션]`
 + 옵션
 
@@ -586,7 +586,7 @@ NAMES|컨테이너 이름
 .Mounts|볼륨 마운트
 .Networks|네트워크명
 
-#####8. 컨테이너 가동 확인(docker container stats)
+##### 8. 컨테이너 가동 확인(docker container stats)
 + `docker container stats [컨테이너 식별자]`
 + 결과
 
@@ -601,7 +601,7 @@ NET I/O|네트워크 I/O
 BLOCK I/O|블록 I/O
 PIDS|PID(Windows 컨테이너 제외)
 
-#####9. 컨테이너 시작(docker container start)
+##### 9. 컨테이너 시작(docker container start)
 + `docker container start [옵션] <컨테이너 식별자> [컨테이너 식별자]`
 + 옵션
 
@@ -610,7 +610,7 @@ PIDS|PID(Windows 컨테이너 제외)
 --attach, -a|표준 출력, 표준 오류 출력을 연다.
 --interactive, -I|컨테이너의 표준 입력을 연다.
 
-#####10. 컨테이너 정지(docker container stop)
+##### 10. 컨테이너 정지(docker container stop)
 + `docker container stop [옵션] <컨테이너 식별자> [컨테이너 식별자]`
 + 옵션
 
@@ -618,7 +618,7 @@ PIDS|PID(Windows 컨테이너 제외)
 --|--
 --time, -t|컨테이너의 정지 시간을 지정(기본값은 10초)
 
-#####11. 컨테이너 재시작(docker container restart)
+##### 11. 컨테이너 재시작(docker container restart)
 +`docker container restart [옵션] <컨테이너 식별자> [컨테이너 식별자]`
 + 옵션
 
@@ -626,7 +626,7 @@ PIDS|PID(Windows 컨테이너 제외)
 --|--
 --time, -t|컨테이너의 재시작 시간을 지정(기본값은 10초)
 
-#####12. 컨테이너 삭제(docker container rm)
+##### 12. 컨테이너 삭제(docker container rm)
 + `docker container rm [옵션] <컨테이너 식별자> [컨테이너 식별자]`
 + 옵션
 
@@ -635,14 +635,14 @@ PIDS|PID(Windows 컨테이너 제외)
 --force, -f|실행 중인 컨테이너를 강제로 삭제
 --volumes, -v | 할당한 볼륨을 삭제
 
-#####13. 컨테이너 중단/재개(docker container pause/docker container unpause)
+##### 13. 컨테이너 중단/재개(docker container pause/docker container unpause)
 + `docker container pause <컨테이너 식별자>`
 
 + 중단 컨테이너의 재개 : `docker container unpause webserver`
 
 # 
-###4.3 Docker 컨테이너 네트워크
-#####1. 네트워크 목록 표시(docker  network ls)
+### 4. 3 Docker 컨테이너 네트워크
+##### 1. 네트워크 목록 표시(docker  network ls)
 + `docker network ls [옵션]`
 + 옵션
 
@@ -663,7 +663,7 @@ name|네트워크명
 scope|네트워크의 스코프(swarm/global/local)
 type|네트워크의 타입(사용자 정의 네트워크 custom/정의 완료 네트워크 builtin)
 
-#####2. 네트워크 작성(docker network create)
+##### 2. 네트워크 작성(docker network create)
 + `docker network create [옵션] 네트워크`
 + 옵션
 
@@ -675,7 +675,7 @@ type|네트워크의 타입(사용자 정의 네트워크 custom/정의 완료 �
 --ipv6| IPv6 네트워크를 유효화할지 말지(true/false)
 -label | 네트워크에 설정하는 라벨
 
-#####3. 네트워크 연결(docker network connect/docker network disconnect)
+##### 3. 네트워크 연결(docker network connect/docker network disconnect)
 + `docker network connect [옵션] 네트워크 컨테이너`
 + 옵션
 
@@ -688,20 +688,20 @@ type|네트워크의 타입(사용자 정의 네트워크 custom/정의 완료 �
 
 + 네트워크에 대한 연결 해제 : `docker network disconnect <네트워크명> <컨테이너명>`
 
-#####4. 네트워크 상세 정보 확인(docker network insepct)
+##### 4. 네트워크 상세 정보 확인(docker network insepct)
 + `docker network insepect [옵션] 네트워크`
 
-#####5. 네트워크 삭제(docker network rm)
+##### 5. 네트워크 삭제(docker network rm)
 + `docker network rm [옵션] 네트워크`
 
 # 
-###4.4 가동 중인 Docker 컨테이너 조작
-#####1. 가동 컨테이너 연결(docker container attach)
+### 4. 4 가동 중인 Docker 컨테이너 조작
+##### 1. 가동 컨테이너 연결(docker container attach)
 + `docker container attach <컨테이너명>`
 + 연결된 컨테이너를 종료 : Ctrl + C
 + 컨테이너에서 분리 : Ctrl + P, Ctrl + Q
 
-#####2. 가동 컨테이너에서 프로세스 실행(docker container exec)
+##### 2. 가동 컨테이너에서 프로세스 실행(docker container exec)
 + `docker container exec [옵션] <컨테이너 식별자> <실행할 명령> [인수]
 + 옵션
 
@@ -714,20 +714,20 @@ type|네트워크의 타입(사용자 정의 네트워크 custom/정의 완료 �
 
 + exec 명령은 실행 중인 컨테이너에서만 실행 가능
 
-#####3. 가동 컨테이너의 프로세스 확인(docker container top)
+##### 3. 가동 컨테이너의 프로세스 확인(docker container top)
 + `docker container top <컨테이너명>`
 
-#####4. 가동 컨테이너의 포트 전송 확인(docker container port)
+##### 4. 가동 컨테이너의 포트 전송 확인(docker container port)
 + `docker container port <컨테이너명>`
 
-#####5. 컨테이너의 이름 변경(docker container rename)
+##### 5. 컨테이너의 이름 변경(docker container rename)
 + `docker container rename <컨테이너명> <변경할 컨테이너명>`
 
-#####6. 컨테이너 안의 파일을 복사(docker container cp)
+##### 6. 컨테이너 안의 파일을 복사(docker container cp)
 + `docker container cp <컨테이너 식별자:<컨테이너 안의 파일 경로> <호스트의 디렉토리 경로>`
 + `docker container cp <호스트의 파일> <컨테이너 식별자>:<컨테이너 안의 파일 경로>`
 
-#####7. 컨테이너 조작의 차분 확인(docker container diff)
+##### 7. 컨테이너 조작의 차분 확인(docker container diff)
 + `docker container diff <컨테이너 식별자>`
 + 변경의 구분
 
@@ -738,8 +738,8 @@ D|파일 삭제
 C|파일 수정
 
 # 
-###4.5 Docker 이미지 생성
-#####1. 컨테이너로부터 이미지 작성(docker container commit)
+### 4. 5 Docker 이미지 생성
+##### 1. 컨테이너로부터 이미지 작성(docker container commit)
 + `docker container commit [옵션] <컨테이너 식별자> [이미지 [:태그명]]`
 + 옵션
 
@@ -750,22 +750,22 @@ C|파일 수정
 --change, -c | 커미트 시 Dockerfile 명령을 지정한다.
 --pause, -p| 컨테이너를 일시 정지하고 커미트한다.
 
-#####2. 컨테이너를 tar 파일로 출력(docker container export)
+##### 2. 컨테이너를 tar 파일로 출력(docker container export)
 + `docker container export <컨테이너 식별자>`
 
-#####3. tar 파일로부터 이미지 작성(docker image improt)
+##### 3. tar 파일로부터 이미지 작성(docker image improt)
 + `docker image import <파일 또는 URL> | - [이미지명 [:태그명]]`
 + image import 명령으로 지정할 수 있는 아카이브 파일 : tar, tar.gz, tgz, bzip, tar.xz, txz
 
-#####4. 이미지 저장(docker image save)
+##### 4. 이미지 저장(docker image save)
 + `docker image save [옵션] <저장 파일명> [이미지명]`
 + 저장할 파일명은 -o 옵션으로 저장
 
-#####5. 이미지 읽어 들이기(docker image load)
+##### 5. 이미지 읽어 들이기(docker image load)
 + `docker image load [옵션]`
 + 읽어 들일 파일명은 -i 옵션으로 지정
 
-#####6. 불필요한 이미지/컨테이너를 일괄 삭제(docker system prune)
+##### 6. 불필요한 이미지/컨테이너를 일괄 삭제(docker system prune)
 + `docker system prune [옵션]`
 + 옵션
 
