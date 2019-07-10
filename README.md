@@ -1,8 +1,85 @@
 # Git Pro
-# 1. Git 저장소 만들기
+## 1. Git 저장소 만들기
 + 기존 디렉토리를 Git 저장소로 만들기
-+ `cd /home/user/my_project`
-+ `git init`
+	+ `$ cd /home/user/my_project` : 프로젝트의 디렉토리로 이동
+	+ `$ git init` :  .git이라는 하위 디렉토리를 만든다.
+
+	+ 파일관리
+		+ add 명령으로 파일을 추가
+		+ commit 명령으로 커밋
+	```
+	$ git add *.c
+	$ git add  LICENSE
+	$ git commit -m 'initial project version'
+	```
+
++ 기존 저장소를 Clone하기
+	+ `$ git clone <url>` : 저장소를 Clone한다.
+	+ 추가 옵션으로 다른 디렉토리 이름으로 Clone할 수 있다.
+
+## 2.  수정하고 저장소에 저장하기
++ 워킹 디렉토리의 파일은 Tracked(관리대상)와 Untracked(관리대상 아님)로 나뉨
++ Tracked 파일 : 이미 스냅샷에 포함돼 있던 파일. Git이 알고있는 파일.
+	+ Unmodified : 수정하지 않음
+	+ Modified : 수정함
+	+ Staged : 커밋으로 저장소에 기록할 파일
+
++ Untracked 파일 : 워킹 디렉토리에 있는 파일 중 스냅샷에도 Staging Area에도 포함되지 않은 파일.
+
++ 파일의 상태 확인하기
+	+ `$ git status`
+	+ 현재 branch, 파일들의 상태에 대해서 알 수 있음
+	
++ 파일을 새로 추적하기
+	+ `$ git add <파일 또는 디렉토리의 경로>` : add 명령으로 파일을 새롭게 추적 가능
+	+ 디렉토리의 경우 하위의 파일들까지 재귀적으로 추가
+	+ 파일을 수정하고 commit을 실행한 다음 같은 파일을 수정하게되면 해당 파일은 staged 상태이면서 동시에 unstaged 상태로 확인된다.
+	+ git add 명령을 실행한 후에 또 파일을 수정하면 다시 git add  명령을 통해서 최신 버전을 Staged 상태로 만들어야한다.
+	
++ 파일 상태를 짤막하게 확인하기
+	+ `$ git status -s` 또는 `$ git status --short`
+	+ 왼쪽의 상태 정보에는 Staging Area의 상태와 Working Tree에서의 상태를 보여준다.
+	+ A : 새로 생성한 파일
+	+ M : 수정한 파일
+	+ ?? : Untracked file
+	
++ 파일 무시하기
+	+ `.gitignore` 파일을 통해서 무시할 패턴을 작성하여 자동생성된 파일을 무시
+		+ 아무것도 없는 라인이나 .'#'로 시작하는 라인은 무시한다.
+		+ 표준 Glob 패턴을 사용한다. 이는 프로젝트 전체에 적용된다.
+		+ 슬래시(/)로 시작하면 하위 디렉토리에 적용되지(Recursivity) 않는다.
+		+ 디렉토리는 슬래시(/)를 끝에 사용하는 것으로 표현한다.
+		+ 느낌표(!)로 시작하는 패턴의 파일은 무시하지 않는다.
+		
++  Staged와 Unstaged 상태의 변경 내용을 보기
+	+ `$ git diff` : 파일의 어떤 내용이 변경되었는지 확인
+	+ --staged (--cached) : 저장소에 커밋한 것과 Staging Area에 있는 것을 비교
+	
++ 변경사항 커밋하기
+	+ `$git commit`
+	+ -m : 메시지를 인라인으로 첨부
+	
++ Staging Area 생략하기
+	+ `$ git commit -a` : Tracked 상태의 파일을 자동으로 Staging Area에 넣는다. (add 명령 생략)
+	
++ 파일 삭제하기
+	+ `$git rm` : 파일을 삭제후 Staged 상태로 변경
+	+ -f : 강제로 삭제
+	+ --cached : Staging Area에서만 제거하고 워킹 디렉토리에 있는 파일은 지우지 않고 남겨둔다.
+
++ 파일 이름 변경하기
+	+ `$ git mv`
+
+	```
+		$ mv README. md README
+		$ git rm README.md
+		$ git add README
+	```
+	+ 위의 둘은 같은 코드이다.
+
+## 3. 커밋 히스토리 조회하기
+
+
 
 
 
