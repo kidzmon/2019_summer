@@ -71,9 +71,9 @@
 	+ `$ git mv`
 
 	```
-		$ mv README. md README
-		$ git rm README.md
-		$ git add README
+	$ mv README. md README
+	$ git rm README.md
+	$ git add README
 	```
 	+ 위의 둘은 같은 코드이다.
 
