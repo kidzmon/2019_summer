@@ -1169,15 +1169,99 @@ ONBUILD 명령 : 그 다음 빌드에서 실행할 명령을 이미지 안에 �
 
 + `HEALTHCHECK --interval=5m --timeout=3s CMD curl -f http://localhost/ || exit 1`
 	+ 5분마다 가동중인 웹 서버의 메인 페이지를 3초 안에 표시할 수 있는지 없는지를 확인
-
 ### 5. 5 환경 및 네트워크 설정
 ##### 1. 환경변수 설정(ENV 명령)
+`ENV [key] [value]`
+`ENV [key]=[value]`
+
++ key value 형으로 지정하는 경우
+	+ 단일 환경변수에 하나의 값을 설정
+	+ 첫 번째 공백 앞을 key로 설정하면 그 이후는 모두 문자열로서 취급
+	+ 공백이나 따옴표와 같은 문자를 포함한 것도 문자로 취급
+	+ 환경변수 설정
+	
+키 명 | 값
+--|--
+myName | "Shiho ASA"
+myOrder|Gin Whisky Calvados
+myNickName|miya
+```
+ENV myName "Shiho ASA"
+ENV myOrder Gin Whisky Calvados
+ENV myNickName miya
+```
+ 위의 경우 ENV 명령이 3줄에 걸쳐있으며 3개의 Docker 이미지를 겹쳐서 생성
++ key=value 형으로 지정하는 경우
+	+ 한번에 여러 개의 값을 설정할 때
+```
+ENV myName="Shiho ASA"
+		myOrder=GIN\ Whisky\ Calvados \
+		myNickName=miya
+```
+위의 경우 하나의 ENV 명령으로 여러 개의 값을 설정하므로 만들어지는 Docker 이미지는 하나
+	+ 변수 앞에 \를 추가하면 이스케이프 처리 가능
+	+ ENV 명령으로 지정한 환경변수는 컨테이너 실행 시의 docker container run 명령의 --env 옵션을 사용하면 변경 가능
+
 ##### 2. 작업 디렉토리 지정(WORKDIR 명령)
+Dockerfile에서 정의한 명령을 실항하기 위한 작업용 디렉토리를 지정
+` WORKDIR [작업 디렉토리 경로]`
++ RUN / CMD /ENTRYPOINT/ COPY/ ADD 명령을 실행하기 위한 작업용 디렉토리 지정
++ 지정한 디렉토리가 존재하지 않으면 새로 작성
++ WORKDIR 명령은 Dockerfile 안에서 여러번 사용 가능
++ 상대 경로를 지정한 경우 이전 WORKDIR 명령의 경로에 대한 상대 경로
++ 절대 경로/ 상대 경로를 사용한 WORKDIR 명령
+```
+WORKDIR /first
+WORKDIR second
+WORKDIR third
+RUN ["pwd"]
+```
+	+ /first/second/third 출력
++ WORKDIR 명령으로 환경변수를 사용한 예
+```
+ENV DIRPATH /first
+ENV DIRNAME second
+WORKDIR $DIRPATH/$DIRNAME
+RUN []"pwd"]
+```
+	+ /first/second 출력
+
 ##### 3. 사용자 지정(USER 명령)
+`USER [사용자명/UID]`
++ RUN / CMD / ENTRYPOINT 명령을 실행하기 위한 사용자 지정
++ USER 명령에서 지정하는 사용자는 RUN 명령으로 미리 작성해 놓을 필요가 있음
+```
+RUN ["adduser", "asa"]
+RUN ["whoami"]
+USER asa
+RUN  ["whoami"]
+```
++ 첫번째 는 root가 출력되고 두번째에는 asa가 출력됨
+
 ##### 4. 라벨 지정(LABEL 명령)
-##### 5. 포트 설정( EXPOSE 명령)
+`LABEL <키 명>=<값>`
++ 이미지에 버전 정보나 작성자 정보, 코멘트 등과 같은 정보를 제공할 때 사용
+
+##### 5. 포트 설정(EXPOSE 명령)
+`EXPOSE <포트 번호>`
++ 컨테이너의 공개 포트 번호를 지정할 때
++ Docker에게 실행 중인 컨테이너가 listen하고 있는 네트워크를 알려줌
++ docker container run 명령의 -p 옵션을 사용할 때 어떤 포트를 호스트에 공개할지를 정의
+
 ##### 6. Dockefile 내 변수의 설정(ARG 명령)
+`ARG <이름> [=기본값]`
++ Dockerfile 안에서 사용할 변수를 정의할 때
++ 이 ARG 명령을 사용하면 변수의 값에 따라 생성되는 이미지의 내용을 바꿀 수 있음
++ --build-arg 옵션으로 ARG 명령에서 지정한 변수에 값을 설정할 수 있음
++ --build-arg 옵션을 붙이지 않고 docker build를 실행했을 때는 ARG 명령에서 지정한 기본값이 전개됨
+
 ##### 7. 기본 쉘 설정(SHELL 명령)
+`SHELL ["쉘의 경로", "파라미터"]`
++ 쉘 형식으로 명령을 실행할 때 기본 쉘을 설정
++ SHELL 명령을 지정하지 않았을 경우
+	+ Linux : ["/bin/sh", "-c"]
+	+ Windows : ["cmd", "/S", "/C"]
++ SHELL 명령을 지정하면 그 쉘은 이후 Dockerfile 안에서 Shell 형식으로 지정한 RUN 명령이나 CMD 명령, ENTRYPOINT 명령에서 유효
 
 ### 5. 6 파일 설정
 ##### 1. 파일 및 디렉토리 추가(ADD 명령)
