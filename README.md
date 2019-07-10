@@ -56,14 +56,14 @@
 	+ --staged (--cached) : 저장소에 커밋한 것과 Staging Area에 있는 것을 비교
 	
 + 변경사항 커밋하기
-	+ `$git commit`
+	+ `$ git commit`
 	+ -m : 메시지를 인라인으로 첨부
 	
 + Staging Area 생략하기
 	+ `$ git commit -a` : Tracked 상태의 파일을 자동으로 Staging Area에 넣는다. (add 명령 생략)
 	
 + 파일 삭제하기
-	+ `$git rm` : 파일을 삭제후 Staged 상태로 변경
+	+ `$ git rm` : 파일을 삭제후 Staged 상태로 변경
 	+ -f : 강제로 삭제
 	+ --cached : Staging Area에서만 제거하고 워킹 디렉토리에 있는 파일은 지우지 않고 남겨둔다.
 
@@ -82,9 +82,7 @@
 
 
 
-
-
-# 
+# Docker
 # 1. 시스템과 인프라 기초지식
 * 시스템 기반 : 애플리케이션을 가동시키기 위해 필요한 하드웨어나 OS/미들웨어 등과 같은 인프라
 
