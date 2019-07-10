@@ -1093,9 +1093,64 @@ FROM [이미지명] @ [다이제스트]
 
 ### 5. 4 명령 및 데몬 실행
 ##### 1. 명령 실행(RUN 명령)
+` RUN [실행하고 싶은 명령]`
++ Shell 형식으로 기술
+```
+# Nginx의 설치
+RUN apt-get install -y nginx
+```
+	 + Docker 컨테이너 안에서 /bin/sh -c를 사용하여 명령을 실행했을 때와 똑같이 작동
+
++ Exec 형식으로 기술
+```
+# Nginx의 설치
+RUN ["/bin/bash", "-c", "apt-get install -y nginx"]
+```
+	+ Exec 형식으로 기술하면 쉘을 경유하지 않고 직접 실행
+	+ 따라서 명령 인수에 $HOME과 같은 환경변수를 지정할 수 없음
+	+ Exec 형식에서는 실행하고 싶은 명령을 JSON 배열로 지정
+	+ 문자열을 인수로 지정할 때는 '(홑따옴표)를 사용
+	+ RUN 명령은 Dockerfile에 여러 개 기술 가능
+	+ /bin/sh를 경유하여 명령을 실행하고 싶을 때는 Shell 형식으로 기술
+	+ 그 외의 경우는 Exec 형식을 기술
+	
 ##### 2. 데몬 실행(CMD 명령)
++ RUN 명령은 이미지를 작성하기 위해 실행하는 명령을 기술하지만, 이미지를 바탕으로 생성된 컨테이너 안에서 명령을 실행하려면 CMD 명령을 사용
++ Dockerfile에는 하나의 CMD 명령을 기술할 수 있음
++ 여러개를 지정하면 마지막 명령만 유효
++ `CMD [실행하고 싶은 명령]`
++ Exec 형식으로 기술
+	+ RUN 명령의 구문과 동일
+	` CMD ["nginx", "-g", "daemon off;"]`
++ Shell 형식으로 기술
+	+ RUN 명령의 구문과 동일
+	`CMD nginx -g 'daemon off;'`
++ ENTRYPOINT 명령의 파라미터로 기술
+
 ##### 3. 데몬 실행(ENTRYPOINT 명령)
+ENTRYPOINT 명령에서 지정한 명령은 Dockerfile에서 빌드한 이미지로부터 Docker 컨테이너를 시작하기 때문에 docker container run 명령을 실행했을 때 실행
++ `ENTRYPOINT [실행하고 싶은 명령]`
++ Exec 형식으로 기술
+	+ RUN 명령의 구문과 동일
+	` ENTRYPOINT ["nginx", "-g", daemon off;"]`
++ Shell 형식으로 기술
+	+ RUN 명령의 구문과 동일
+	`ENTRYPOINT nginx -g 'daemon off;'`
++ ENTRYPOINT와 CMD의 차이 : 동작의 실행의 시간
+	+ CMD : 컨테이너 시작 시에 실행하고 싶은 명령을 정의해도 docker container run 명령 실행 시에 인수로 새로운 명령을 지정한 경우 이를 우선 실행
+	+ ENTRYPOINT : 지정한 명령은 반드시 컨테이너에서 실행되는데, 실행 시에 명령 인수를 지정하고 싶을 때는 CMD 명령과 조합하여 사용
+		+ ENTRYPOINT 명령으로는 실행하고 싶은 명령 자체를 지정하고, CMD 명령으로는 그 명령의 인수를 지정ㅇ하면, 컨테이너를 실행했을 때의 기본작동을 결정 가능
+
 ##### 4. 빌드 완료 후에 실행되는 명령(ONBUILD 명령)
+ONBUILD 명령 : 그 다음 빌드에서 실행할 명령을 이미지 안에 설정하기 위한 명령
++ 명령의 실행 타이밍을 늦출 수 있음
++ `ONBUILD [실행하고 싶은 명령]`
++ 자신의 Dockerfile로부터 생성한 이미지를 베이스 이미지로 한 다른 Dockerile을 빌드할 때 시행하고 싶은 명령을 기술
+1. 베이스 이미지 작성
+2. 웹 콘텐츠 개발
+3. 서버용 이미지 작성
+4. 웹 서버용 컨테이너 시작
+
 ##### 5. 시스템 콜 시그널의 설정(STOPSIGNAL 명령)
 ##### 6. 컨테이너의 헬스 체크 명령(HEALTHCHECK 명령)
 
