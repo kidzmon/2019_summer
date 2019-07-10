@@ -309,6 +309,6 @@ root@ubuntu:/home/seungho/Desktop/co_op/gitpractice# git commit -a -m 'make temp
 ```
 root@ubuntu:/home/seungho/Desktop/co_op/gitpractice# git merge new
 Auto-merging temp1
-*CONFLICT (add/add)*: Merge conflict in temp1
+CONFLICT (add/add): Merge conflict in temp1
 Automatic merge failed; fix conflicts and then commit the result.
 ```
