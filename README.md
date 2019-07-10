@@ -186,7 +186,8 @@
 	+ `$ git branch -d <브랜치명>` : 브랜치 삭제
 
 + 충돌의 기초
-	+ Merge Conflict Scenario 문서 참조
+	+ [Merge Conflict Scenario](https://github.com/kidzmon/2019_summer/blob/master/Merge_Conflict.md) 문서 참조
+
 	
 
 # Docker
