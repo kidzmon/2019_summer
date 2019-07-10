@@ -1007,12 +1007,51 @@ C|파일 수정
 --all, -a|사용하지 않는 리소스를 모두 삭제한다.
 --force, -f|강제적으로 삭제한다.
 
+
 # 
 # 5. Dockerfile을 사용한 코드에 의한 서버 구축
 ### 5. 1 Dockerfile을 사용한 구성 관리
 ##### 1. Dockerfile이란?
++ Dockerfile : Docker 상에서 작동시킬 컨테이너의 구성 정보를 기술한 파일
++ docker build 명령으로 Dockerfile에 기술된 구성 정보를 바탕으로 Docker 이미지를 작성
+
 ##### 2. Dockerfile의 기본 구문
+` 명령 인수` : Dockerfile 기본 서식
++ Dockerfile의 명령
+
+명령 |설명
+--|--
+FROM|베이스 이미지 지정
+RUN|명령 실행
+CMD|컨테이너 실행 명령
+LABEL|라벨 설정
+EXPOSE|포트 익스포트
+ENV|환경변수
+ADD|파일/디렉토리 추가
+COPY|파일 복사
+ENTRYPOINT|컨테이너 실행 명령
+VOLUME|볼륨 마운트
+USER|사용자 지정
+WORKDIRARG|작업 디렉토리
+ARG|Dockerfile 안의 변수
+ONBUILD|빌드 완료 후 실행되는 명령
+STOPSIGNAL|시스템 콜 시그널 설정
+HEALTHCHECK|컨테이너의 헬스 체크
+SHELL|기본 쉘 설정
++ '#'을 사용하여 주석 작성
+
 ##### 3. Dockerfile 작성
++ 베이스 이미지 : Docker 컨테이너를 어떤 Docker 이미지로부터 생성할 때 기본이 되는 이미지
+
+```
+FROM [이미지명]
+FROM [이미지명] : [태그명]
+FROM [이미지명] @ [다이제스트]
+```
++ FROM 명령은 필수 항목
++ 태그명을 생략하면 베이스 이미지의 최신 버전(latest)이 적용
++ 이미지를 고유하게 특정할 때는 다이제스트를 이용
++ `FROM tensorflow/tensorflow@sha256:~` : 다이제스트를 지정한 Dockefile
 
 ### 5. 2 Dockerfile의 빌드와 이미지 레이어
 ##### 1. Dockerfile로부터 Docker 이미지 만들기
