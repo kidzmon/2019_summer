@@ -1,4 +1,5 @@
 # Git Pro
+# GIt의 기초
 ## 1. Git 저장소 만들기
 + 기존 디렉토리를 Git 저장소로 만들기
 	+ `$ cd /home/user/my_project` : 프로젝트의 디렉토리로 이동
@@ -120,8 +121,51 @@
 --grep|커밋 메시지 안의 텍스트를 검색한다
 -S|커밋 변경(추가/삭제) 내용 안의 텍스트를 검색한다.
 
+## 4. 되돌리기
++ `$ git commit --amend` : Staging Area를 사용하여 커밋을 재작성
 
++ 파일 상태를 Unstage로 변경하기
++ ` $ git reset` 
 
+## 5. 리모트 저장소 확인하기
++ 리모트 저장소 확인하기
+	+ `$ git remote ` : 현재 프로젝트에 등록된 리모트 저장소를 확인
+	+ 저장소를 clone하면 'origin'이라는 리모트 저장소가 자동으로 등록
+	+ -v : 단축이름과 URL을 함께 볼 수 있음
+	
++ 리모트 저장소 추가하기
+	+ `$ git remote add <단축이름> <url>`
+	
++ 리모트 저장소를 Pull하거나 Fetch하기
+	+ `$ git fetch <remote>`
+	
++ 리모트 저장소에 Push 하기
+	+ `$ git push origin master`
+	
++ 리모트 저장소 살펴보기
+	+ `$ git remote show <리모트 저장소 이름>`
+	
++ 리모트 저장소 이름을 바꾸거나 리모트 저장소를 삭제하기
+	+ `$ git remote rename <이전 이름> <변경할 이름>`
+	+ `$ git remote remove <리모트 저장소 이름>`
+	
+## 6. 태그
++ 태그 조회하기
+	+ `$ git tag`
+	+ -l, --list : 리스트 옵션
++ 태그 붙이기
+	+ Annotated 태그(-a 옵션) : Git 데이터베이스에 태그를 만든 사람의 이름, 이메일과 태그를 만든 날짜, 그리고 태그 메시지도 같이 저장
+	+ Lightweight 태그(-lw 옵션) : 파일에 커밋 체크섬을 저장
++ 태그 공유하기
+	+ `git push origin <태그 이름>`
+	+ --tags : 여러 태그를 한번에 push
++ 태그를 Checkout 하기
+
+## 7. Git Alias
+	+ `$ git config --global alias.<name> <명령>
+
+# Git 브랜치
+## 3.1 브랜치란 무엇인가.
 
 # Docker
 # 1. 시스템과 인프라 기초지식
