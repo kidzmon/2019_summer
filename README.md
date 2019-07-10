@@ -1152,7 +1152,23 @@ ONBUILD 명령 : 그 다음 빌드에서 실행할 명령을 이미지 안에 �
 4. 웹 서버용 컨테이너 시작
 
 ##### 5. 시스템 콜 시그널의 설정(STOPSIGNAL 명령)
+컨테이너를 종료할 때에 송신하는 시그널을 설정
++ STOPSIGNAL 명령 : `STOPSIGNAL [시그널]`
++ 시그널 번호(9 등) 또는 시그널명(SIGKILL등)을 지정할 수 있음
+
 ##### 6. 컨테이너의 헬스 체크 명령(HEALTHCHECK 명령)
+컨테이너 안의 프로세스가 정상적으로 작동하고 있는지를 체크
++ HEALTHCHECK 명령 : `HEALTHCHECk [옵션] CMD 실행할 명령`
++ 옵션
+
+옵션 | 설명|기본값
+--|--|--
+--interval=n|헬스 체크 간격|30s
+--timeout=n|헬스 체크 타임아웃|30s
+--retires=N|타임아웃 횟수|3
+
++ `HEALTHCHECK --interval=5m --timeout=3s CMD curl -f http://localhost/ || exit 1`
+	+ 5분마다 가동중인 웹 서버의 메인 페이지를 3초 안에 표시할 수 있는지 없는지를 확인
 
 ### 5. 5 환경 및 네트워크 설정
 ##### 1. 환경변수 설정(ENV 명령)
