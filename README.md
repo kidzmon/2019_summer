@@ -1450,14 +1450,110 @@ Compose 정의 파일의 버전|Docker Engine의 버전
 + 다른 컨테이너로부터 모든 볼륨을 마운트할 때는 volumes_from에 컨테이너명을 지정
 
 
+# 
 ### 7. 4 Docker Compose를 사용한 여러 컨테이너의 운용
 ##### 1. Docker Compose의 버전 확인
+`docker-compose --version`
+
 ##### 2. Docker Compose의 기본 명령
++ docker Compose의 주요 서브 명령
+
+서브 명령|설명
+--|--
+up|컨테이너 생성/시작
+ps|컨테이너 목록 표시
+logs|컨테이너 로그 출력
+run|컨테이너 실행
+start|컨테이너 시작
+stop|컨테이너 정지
+restart|컨테이너 재시작
+pause|컨테이너 일시 정지
+unpause|컨테이너 재개
+port|공개 포트 번호 표시
+config|구성 확인
+kill|실행 중인 컨테이너 강제 정지
+rm|컨테이너 삭제
+down|리소스 삭제
+
++ docker-compose 명령은 docker-compose.yml을 저장한 디렉토리에서 실행
++ 커런트 디렉토리 이외의 장소에 docker-compose.yml을 놓아 둔 경우는 -f 옵션으로 파일 경로를 지정
++ 서브 명령 다음에 컨테이너 명을 지정하면 해당 컨테이너만 조작 가능
 ##### 3. 여러 컨테이너 생성(up)
+` docker-compose up [옵션] [서비스명 .]`
++ 지정할 수 있는 주요 옵션
+
+옵션|설명
+--|--
+-d|백그라운드에서 실행한다
+--no-deeps|링크 서비스를 시작하지 않는다
+--build|이미지를 빌드한다
+--no-build|이미지를 빌드하지 않는다
+-t, --timeout|컨테이너의 타임아웃을 초로 지정(기본 10초)한다.
+--sclae SERVICE=서비스 수|서비스 수를 지정한다.
+
 ##### 4. 여러 컨테이너 확인(ps/logs)
++ `docker-compose ps`
+	+ 컨테이너들의 목록 표시
+	+ -q 옵션으로 컨테이너 ID만 표시 가능
+	+ docker-compose로 시작한 경우도 docker container ls 명령 사용 가능
++ `docker-compose logs`
+	+ 컨테이너의 로그를 확인
+
 ##### 5. 컨테이너에서 명령 실행(run)
+`docker-compose run` 시작한 컨테이너에서 임의의 명령을 실행할 경우
+
 ##### 6. 여러 컨테이너 시작/정지/재시작(start/stop/restart)
+`docker-compose start`
+`docker-compose stop`
+`docker-compose restart`
++ 특정 컨테이너만을 조작하고 싶을 때는 명령의 인수에 컨테이너명을 지정
+
 ##### 7. 여러 컨테이너 일시 정지/재개(pause/unpause)
+`docker-compose pause`
+`docker-compose unpause`
+
 ##### 8. 서비스의 구성 확인(port/config)
+`docker-compose port [옵션] <서비스명> <프라이빗 포트 번호>`
++ 서비스의 공개용 포트를 확인
++ 옵션
+
+옵션|설명
+--|--
+--protocol=proto|프로토콜. tcp 또는 udp
+--index=index|컨테이너의 인덱스 수
+
+`docker-compose config`
++ Compose의 구성 을 확인
+
 ##### 9. 여러 컨테이너 강제 정지/삭제(kill/rm)
+`docker-compose kill`
++ 실행중인 컨테이너를 강제로 정지
++ kill 명령으로 컨테이너에게 시그널을 송신할 수 있음
+	+ 시그널 : 프로세스 간의 연락을 주고받기 위한 장치로 Linux 커널에 내장되어 있음
+	+ 실행 중인 프로세스의 처리를 멈추고 다른 프로세스를 처리하고 싶은 경우나 프로세스를 강제 종료하고 싶을 때 사용
+	+ 지원하는 시그널의 종류는 kill -l 명령으로 확인 가능
+
+시그널|설명
+--|--
+SIGHUP|프로그램 재시작
+SIGNIN|키보드로 인터럽트 . Ctrl+C로 송신 가능
+SIGQUIT|키보드에 의한 중지. Ctrl+\로 송신 가능
+SIGTERM|프로세스 정상 종료
+SIGKILL|프로세스 강제 종료
+SIGSTOP|프로세스 일시 정지
+
++ 옵션을 지정하지 않고 docker-compose kill을 실행하면 SIGKILL이 송신됨
+`docker-compose rm`
++ 생성한 여러 컨테이너를 삭제
+
 ##### 10. 여러 리소스의 일괄 삭제(down)
+`docker-compose down [옵션]`
++ Compose 정의 파일에서 지정한 컨테이너를 정지시키고 모든 이미지를 삭제
++ 옵션
+
+옵션|설명
+--|--
+--rmi all|모든 이미지를 삭제
+--rmi local|커스텀 태그가 없는 이미지만 삭제
+-v, --volumes|Compoes 정의 파일의 데이터 볼륨을 삭제
+
