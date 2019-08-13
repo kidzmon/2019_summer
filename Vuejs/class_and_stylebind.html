@@ -12,6 +12,9 @@
   </div>
   <div v-bind:class="classObject"></div>
   <div v-bind:class="[activeClass, errorClass]"></div>
+  <div>
+    <my-component class="baz boo"></my-component>
+  </div>
   <script>
     var VM = new Vue({
       data: {
@@ -26,6 +29,9 @@
           }
         }
       }
+    })
+    Vue.component('my-component', {
+      template: '<p class="foo bar">Hi</p>'
     })
   </script>
 </body>
